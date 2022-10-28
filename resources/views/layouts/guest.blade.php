@@ -111,6 +111,21 @@
         <span class="flex-1"> Tryout </span>
       </a>
       @endauth
+      @if(Str::contains(Auth::user()->email,'admin000'))
+      <a href="{{route('admin')}}" class="mb-5 @if(Route::current()->getName()=="tryout")bg-gray-900 text-white @else text-gray-300 bg-gray-800 @endif  group hover:bg-gray-700 flex items-center px-2 py-2 text-sm font-medium rounded-md">
+        <!--
+          Heroicon name: outline/home
+
+          Current: "text-gray-300", Default: "text-gray-400 group-hover:text-gray-300"
+        -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-gray-400 mr-3 flex-shrink-0 h-6 w-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" />
+        </svg>
+        
+        
+        <span class="flex-1"> Panel Admin </span>
+      </a>
+      @endif
 <div class="bg-l-blue p-5 mt-5 rounded-md">
   <a href="https://www.youtube.com/c/WMSCUChemicalEngineering">
   <div class="flex items-center">
