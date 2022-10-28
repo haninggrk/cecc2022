@@ -44,7 +44,10 @@ class JawabanUser extends Authenticatable
      *
      * @var array
      */
-    public function answers(){
-        return $this->hasOne(Soal::class,'soal');
+    public function aaa(){
+        return $this->hasOne(Soal::class,'id','soal');
+    }
+    public function user(){
+        return $this->belongsTo(User::class ,'soal');
     }
 }

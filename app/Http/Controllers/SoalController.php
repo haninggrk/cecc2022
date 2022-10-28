@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
  
 use App\Models\Soal;
+use App\Models\User;    
 use Illuminate\Http\Request;
 use App\Models\JawabanUser;
 use Auth;   
+use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 class SoalController extends Controller
 {
@@ -42,6 +44,17 @@ class SoalController extends Controller
       return redirect(route('showSoal','1'));
     }
 
+    public function admin()
+    {
+        if(Str::contains(Auth::user()->email,'admin000')){
+        return view('admin')->with('allUser',User::all());
+        }else{
+            return redirect(route('home'));
+        }
+        
+    }
+
+
     public function answer(Request $request){
         $answer = JawabanUser::where('user_id',Auth::user()->id)->where('soal',$request->soalid)->first();
         if($answer == null){
@@ -73,6 +86,8 @@ class SoalController extends Controller
 
     public function tryoutconfirm(){
         Auth::user()->is_tryout_done = 1;
+        Auth::user()->timetaken = Carbon::now()->toDateTimeString();
+
         Auth::user()->save();
         return view('aftermath');
     }

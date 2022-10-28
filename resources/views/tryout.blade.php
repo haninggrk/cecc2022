@@ -18,12 +18,18 @@
 
         <div class="mt-12 text-center">
         <a 
-        href="{{route('startTryout','1')}}"
+        href="
+        @if(Auth::user()->is_tryout_done == 0 && Auth::user()->start_tryout != null or Auth::user()->is_tryout_done == 0)
+        {{route('startTryout','1')}}
+        @endif
+        "
         ><button class="text-center text-4xl font-bold p-5 text-white rounded-md bg-blue-700 hover:bg-blue-800 ">
         @if(Auth::user()->is_tryout_done == 1)   
             Sesi Berakhir
         @elseif(Auth::user()->is_tryout_done == 0 && Auth::user()->start_tryout != null)
             Lanjutkan Tryout
+        @elseif(Auth::user()->is_tryout_done == 2)
+            Tryout Belum Dibuka
         @else
             Mulai Tryout
         @endif

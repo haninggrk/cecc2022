@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 
 
+
 Route::get('/home', function () {
     return view('LandingPageView');
 });
@@ -32,6 +33,7 @@ Route::get('/guidance', function () {
 
 // Route::get('/seed', [EasySeeder::class,'seed'])->name('seed');
 
+Route::get('/admin', [SoalController::class,'admin'])->name('admin'); 
 
 Route::middleware([
     'auth:sanctum',
@@ -47,6 +49,9 @@ Route::middleware([
     Route::get('/tryout', function () {
         return view('tryout');
     })->name('tryout');
+
+
+
 
     Route::get('/aftermath', function () {
         return view('aftermath');

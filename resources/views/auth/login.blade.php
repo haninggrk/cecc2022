@@ -17,11 +17,11 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
         <div class="text-center mt-3">
-            <input type="text" name="email" id="large-input" placeholder="Email Address" style="width:25vw; min-width:300px" class="p-4 text-gray-900 bg-white rounded-t-md border border-gray-300 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600">
+            <input type="text" name="email" id="large-input" placeholder="Email Address" style="width:25vw; min-width:300px" class="p-4 text-gray-900 bg-white rounded-t-md border border-gray-300 sm:text-md focus:ring-blue-500 focus:border-blue-500 ">
         </div>
         <div class="text-center " x-data="{ show: true }">
             <div class="relative">
-                <input placeholder="Password" name="password" style="width:25vw;min-width:300px" :type="show ? 'password' : 'text'" class="p-4 text-gray-900 bg-white rounded-b-md border border-gray-300 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600">
+                <input placeholder="Password" name="password" style="width:25vw;min-width:300px" :type="show ? 'password' : 'text'" class="p-4 text-gray-900 bg-white rounded-b-md border border-gray-300 sm:text-md focus:ring-blue-500 focus:border-blue-500">
            
                 <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
 

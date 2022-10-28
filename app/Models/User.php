@@ -62,4 +62,5 @@ class User extends Authenticatable
     public function answers(){
         return $this->hasMany(JawabanUser::class,'user_id');
     }
+    
 }
