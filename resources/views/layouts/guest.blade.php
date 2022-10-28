@@ -111,6 +111,7 @@
         <span class="flex-1"> Tryout </span>
       </a>
       @endauth
+      @auth
       @if(Str::contains(Auth::user()->email,'admin000'))
       <a href="{{route('admin')}}" class="mb-5 @if(Route::current()->getName()=="tryout")bg-gray-900 text-white @else text-gray-300 bg-gray-800 @endif  group hover:bg-gray-700 flex items-center px-2 py-2 text-sm font-medium rounded-md">
         <!--
@@ -127,6 +128,7 @@
         <span class="flex-1"> Panel Admin </span>
       </a>
       @endif
+      @endauth
 <div class="bg-l-blue p-5 mt-5 rounded-md">
   <a href="https://www.youtube.com/c/WMSCUChemicalEngineering">
   <div class="flex items-center">
