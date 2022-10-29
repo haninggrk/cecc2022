@@ -19,7 +19,9 @@ Route::get('/', function () {
     return view('LandingPageView');
 })->name('home');
 
-
+Route::get('/time', function () {
+    return view('time');
+})->name('time');
 
 
 

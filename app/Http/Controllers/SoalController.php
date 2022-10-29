@@ -38,7 +38,7 @@ class SoalController extends Controller
     {
         if(Auth::user()->start_tryout == null){
         Auth::user()->start_tryout = Carbon::now()->toDateTimeString();
-        Auth::user()->end_tryout = (Carbon::now()->addHours(2)->toDateTimeString());
+        // Auth::user()->end_tryout = (Carbon::now()->addHours(2)->toDateTimeString());
         Auth::user()->save();
         }
       return redirect(route('showSoal','1'));
