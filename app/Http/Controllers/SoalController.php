@@ -47,7 +47,7 @@ class SoalController extends Controller
     public function admin()
     {
         if(Str::contains(Auth::user()->email,'admin000')){
-        return view('admin')->with('allUser',User::all());
+        return view('admin')->with('allUser',User::orderBy('score', 'ASC')->get());
         }else{
             return redirect(route('home'));
         }

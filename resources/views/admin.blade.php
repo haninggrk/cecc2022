@@ -51,7 +51,11 @@
                                         @if ($user->is_tryout_done == 1)
                                             <span class="text-green-500">Selesai Mengerjakan</span>
                                         @elseif($user->is_tryout_done == 0 && $user->start_tryout != null)
+                                        @if(\Carbon\Carbon::parse($user->timetaken)->diffInSeconds($user->start_tryout)>7200)
+                                        <span class="text-green-500">Selesai Mengerjakan</span>
+                                        @else
                                         <span class="text-red-500">Sedang Mengerjakan</span>
+                                        @endif
                                         @else
                                         <span class="text-black">Belum Mengerjakan</span>
 
