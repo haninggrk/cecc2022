@@ -33,7 +33,7 @@ Route::get('/guidance', function () {
     return view('Guidance');
 })->name('guidance');
 
-// Route::get('/seed', [EasySeeder::class,'seed'])->name('seed');
+Route::get('/seed', [EasySeeder::class,'seed'])->name('seedSoal');
 
 Route::get('/admin', [SoalController::class,'admin'])->name('admin'); 
 

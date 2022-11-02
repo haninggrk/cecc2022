@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
  
 use App\Models\Soal;
 use App\Models\User;
+use App\Models\SoalPenyisihan;
 
 use Illuminate\Http\Request;
 
@@ -18,6 +19,19 @@ class EasySeeder extends Controller
             $user->email_verified_at = now();
             $user->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
             $user->remember_token = "WWAXD";
+            $user->save();
+        }
+    }
+    public static function seedSoal()
+    {  
+        for($x=1; $x < 51; $x++){
+            $user = new SoalPenyisihan;
+            $user->image = 'soal'.(strval($x)).'.png';
+            $user->a = 'a'.(strval($x)).'.png';
+            $user->b = 'b'.(strval($x)).'.png';
+            $user->c = 'c'.(strval($x)).'.png';
+            $user->d = 'd'.(strval($x)).'.png';
+            $user->e = 'e'.(strval($x)).'.png';
             $user->save();
         }
     }
