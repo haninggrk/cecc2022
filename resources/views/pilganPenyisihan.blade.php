@@ -36,7 +36,6 @@
                                 <input type="hidden" name="kesoal" id="kesoal" value="">
                                 <div class="jawaban mt-5">
                                     <div class="flex items-center mb-2">
-                                        @dump(Auth::user()->answerPenyisihans->where('soal', $soal->id)->first())
                                         <input
                                             @if (Auth::user()->answerPenyisihans->where('soal', $soal->id)->first() != null) @if (Auth::user()->answerPenyisihans->where('soal', $soal->id)->first()->jawaban == 'a') checked @endif
                                             @endif id="default-radio-1"
