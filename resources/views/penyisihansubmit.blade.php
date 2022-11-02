@@ -29,9 +29,9 @@
                         style="background:#1E5CAA">Status</div>
                     @foreach ($listSoal as $s)
                         <div class=" text-2xl font-medium text-center">
-                            @if (Auth::user()->answers->where('soal', $s->id)->first() != null)
-                                @if (Auth::user()->answers->where('soal', $s->id)->first()->jawaban != null)
-                                    @if (Auth::user()->answers->where('soal', $s->id)->first()->ragu == 1)
+                            @if (Auth::user()->answerPenyisihans->where('soal', $s->id)->first() != null)
+                                @if (Auth::user()->answerPenyisihans->where('soal', $s->id)->first()->jawaban != null)
+                                    @if (Auth::user()->answerPenyisihans->where('soal', $s->id)->first()->ragu == 1)
                                         <span class="text-yellow-500">
                                             Ragu-ragu
                                         </span>
@@ -57,11 +57,11 @@
             </form>
             <div style="justify-content: space-between" class="flex mt-5 justify-beetween">
                 <div>
-                    <a href="{{route('startTryout','1')}}"><button style="background-color: #1E5CAA
+                    <a href="{{route('startPenyisihan','1')}}"><button style="background-color: #1E5CAA
                         " class="text-center text-3xl font-bold p-5 text-white rounded-md hover:bg-blue-800 ">Kembali</button></a>
                 </div>
                 <div>
-                    <a href="{{route('tryoutconfirm')}}"><button style="background-color: #1E5CAA
+                    <a href="{{route('penyisihanconfirm')}}"><button style="background-color: #1E5CAA
                         " class="text-center text-3xl font-bold p-5 text-white rounded-md bg-blue-700 hover:bg-blue-800 ">Kumpulkan</button></a>
 
                 </div>

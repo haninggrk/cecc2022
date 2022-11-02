@@ -47,10 +47,18 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::get('/quiz/{nomor}', [SoalController::class,'show'])->name('showSoal'); 
+    Route::get('/penyisihan/{nomor}', [SoalController::class,'showPenyisihan'])->name('showPenyisihan'); 
+
     Route::get('/startTryout/{nomor}', [SoalController::class,'start'])->name('startTryout'); 
+    Route::get('/startPenyisihan/{nomor}', [SoalController::class,'startPenyisihan'])->name('startPenyisihan'); 
+
     Route::get('/tryout', function () {
         return view('tryout');
     })->name('tryout');
+
+    Route::get('/penyisihan', function () {
+        return view('penyisihan');
+    })->name('penyisihan');
 
 
 
@@ -59,9 +67,13 @@ Route::middleware([
         return view('aftermath');
     })->name('aftermath');
     Route::get('/tryout/submit', [SoalController::class,'tryoutsubmit'])->name('tryoutsubmit');
+    Route::get('/sisih/submit', [SoalController::class,'penyisihansubmit'])->name('penyisihansubmit');
+    Route::get('/sisih/confirm', [SoalController::class,'penyisihanconfirm'])->name('penyisihanconfirm');
+
     Route::get('/tryout/confirm', [SoalController::class,'tryoutconfirm'])->name('tryoutconfirm');
     Route::post('/answer', [SoalController::class,'answer'])->name('answer'); 
-    
+    Route::post('/answerPenyisihan', [SoalController::class,'answerPenyisihan'])->name('answerPenyisihan'); 
+
 }
 
 );

@@ -10,23 +10,21 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class JawabanUserPenyisihan extends Authenticatable
 {
-    use HasApiTokens;
-    use HasFactory;
-    use HasProfilePhoto;
-    use Notifiable;
-    use TwoFactorAuthenticatable;
-
     /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
+
+    protected $table = 'jawabanUserPenyisihan';
+
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'soal',
+        'jawaban',
+        'user_id',
+        'ragu'
     ];
 
     /**
@@ -34,38 +32,22 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-        'two_factor_recovery_codes',
-        'two_factor_secret',
-    ];
 
     /**
      * The attributes that should be cast.
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
 
     /**
      * The accessors to append to the model's array form.
      *
      * @var array
      */
-    protected $appends = [
-        'profile_photo_url',
-    ];
-
-    public function answers(){
-        return $this->hasMany(JawabanUser::class,'user_id');
+    public function aaa(){
+        return $this->hasOne(SoalPenyisihan::class,'id','soal');
     }
-
-    public function answerPenyisihans(){
-        return $this->hasMany(JawabanUserPenyisihan::class,'user_id');
+    public function user(){
+        return $this->belongsTo(User::class ,'soal');
     }
-    
-    
 }
