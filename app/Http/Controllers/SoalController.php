@@ -85,6 +85,16 @@ class SoalController extends Controller
         
     }
 
+    public function admin2()
+    {
+        if(Str::contains(Auth::user()->email,'admin000')){
+        return view('admin2')->with('allUser',User::orderBy('score', 'ASC')->get());
+        }else{
+            return redirect(route('home'));
+        }
+        
+    }
+
 
     public function answer(Request $request){
         $answer = JawabanUser::where('user_id',Auth::user()->id)->where('soal',$request->soalid)->first();

@@ -48,10 +48,10 @@
                                         {{ $user->name }}</td>
                                     <td class="whitespace-nowrap p-4 text-sm text-gray-500">{{ $user->email }}</td>
                                     <td class="whitespace-nowrap p-4 text-sm text-gray-500">
-                                        @if ($user->is_tryout_done == 1)
+                                        @if ($user->is_penyisihan_done == 1)
                                             <span class="text-green-500">Selesai Mengerjakan</span>
-                                        @elseif($user->is_tryout_done == 0 && $user->start_tryout != null)
-                                        @if(\Carbon\Carbon::parse($user->timetaken)->diffInSeconds($user->start_tryout)>7200)
+                                        @elseif($user->is_penyisihan_done == 0 && $user->start_penyisihan != null)
+                                        @if(\Carbon\Carbon::parse($user->timetaken_penyisihan)->diffInSeconds($user->start_penyisihan)>7200)
                                         <span class="text-green-500">Selesai Mengerjakan</span>
                                         @else
                                         <span class="text-red-500">Sedang Mengerjakan</span>
@@ -64,25 +64,25 @@
                                     <td class="whitespace-nowrap py-4 pl-4 pr-4 text-sm text-gray-500 sm:pr-6">
                                         @php($benar = 0)
                                         @php($salah = 0)
+                                        @foreach ($user->answerPenyisihans as $answer)
 
-                                        @foreach ($user->answers as $answer)
-
-                                            @if ($answer->aaa != null and $answer->jawaban == $answer->aaa->jawaban)
+                                        @if($answer != null)
+                                            @if ($answer->jawaban == $answer->aaa->jawaban)
                                                 @php($benar++)
                                             @else
                                                 @php($salah++)
                                             @endif
-
+                                            @endif
                                         @endforeach
                                         {{ $benar * 2 }}
 
                                     </td>
                                     <td class="whitespace-nowrap py-4 pl-4 pr-4 text-sm text-gray-500 sm:pr-6">
                                         @if(true)
-                                        @if(\Carbon\Carbon::parse($user->timetaken)->diffInSeconds($user->start_tryout)>7200)
+                                        @if(\Carbon\Carbon::parse($user->timetaken_penyisihan)->diffInSeconds($user->start_penyisihan)>7200)
                                         2:00:00
                                         @else
-                                        {{ \Carbon\Carbon::parse($user->timetaken)->diff($user->start_tryout)->format('%h:%i:%s')}}
+                                        {{ \Carbon\Carbon::parse($user->timetaken)->diff($user->start_penyisihan)->format('%h:%i:%s')}}
                                         @endif
                                         @endif
                                     </td>

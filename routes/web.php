@@ -35,13 +35,15 @@ Route::get('/guidance', function () {
 
 Route::get('/seed', [EasySeeder::class,'seedSoal'])->name('seedSoal');
 
-Route::get('/admin', [SoalController::class,'admin'])->name('admin'); 
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
+
+    Route::get('/admin', [SoalController::class,'admin'])->name('admin'); 
+    Route::get('/admin2', [SoalController::class,'admin2'])->name('admin2'); 
 
     Route::get('/dashboard', function () {
         return view('dashboard');
