@@ -24,15 +24,23 @@ class EasySeeder extends Controller
     }
     public static function seedSoal()
     {  
-        for($x=1; $x < 51; $x++){
-            $user = new SoalPenyisihan;
-            $user->image = 'soal'.(strval($x)).'.png';
-            $user->a = 'a'.(strval($x)).'.png';
-            $user->b = 'b'.(strval($x)).'.png';
-            $user->c = 'c'.(strval($x)).'.png';
-            $user->d = 'd'.(strval($x)).'.png';
-            $user->e = 'e'.(strval($x)).'.png';
+     foreach(User::all() as $user){
+        $benar = 0;
+        $salah = 0;
+        foreach ($user->answers as $answer){
+            if($answer != null){
+                if ($answer->aaa != null and $answer->jawaban == $answer->aaa->jawaban){
+                    $benar++;
+                }
+            else
+                $salah++;
+            }
+            $user->score = $benar*2;
             $user->save();
+           
         }
+
+  
+     }
     }
 }
