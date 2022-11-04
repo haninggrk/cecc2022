@@ -82,7 +82,7 @@
                                         @if(\Carbon\Carbon::parse($user->timetaken_penyisihan)->diffInSeconds($user->start_penyisihan)>7200)
                                         2:00:00
                                         @else
-                                        {{ \Carbon\Carbon::parse($user->timetaken)->diff($user->start_penyisihan)->format('%h:%i:%s')}}
+                                        {{ \Carbon\Carbon::parse($user->timetaken_penyisihan)->diff($user->start_penyisihan)->format('%h:%i:%s')}}
                                         @endif
                                         @endif
                                     </td>
