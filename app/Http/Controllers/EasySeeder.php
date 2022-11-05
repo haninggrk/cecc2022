@@ -35,7 +35,7 @@ class EasySeeder extends Controller
             else
                 $salah++;
             }
-            $user->score = $benar*2;
+            $user->score_penyisihan = $benar*2;
             $user->save();
            
         }
