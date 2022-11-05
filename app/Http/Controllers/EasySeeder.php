@@ -27,7 +27,7 @@ class EasySeeder extends Controller
      foreach(User::all() as $user){
         $benar = 0;
         $salah = 0;
-        foreach ($user->answers as $answer){
+        foreach ($user->answerPenyisihans as $answer){
             if($answer != null){
                 if ($answer->aaa != null and $answer->jawaban == $answer->aaa->jawaban){
                     $benar++;
